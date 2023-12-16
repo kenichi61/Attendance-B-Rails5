@@ -3,8 +3,8 @@
   <table class="table table-bordered table-condensed user-table">
     <tr>
       <td width="35%">時間管理表</td>
-      <td width="27%">指定勤務時間&emsp;</td>
-      <td colspan="3">基本時間&emsp;</td>
+      <td width="27%">指定勤務時間&emsp;<%= format_basic_info(@user.work_time) %></td>
+      <td colspan="3">基本時間&emsp;<%= format_basic_info(@user.basic_time) %></td>
       <td width="12%">初日</td>
     </tr>
 

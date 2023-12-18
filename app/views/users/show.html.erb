@@ -29,6 +29,7 @@
       <tr>
         <th>日付</th>
         <th>曜日</th>
+        <th>勤怠登録</th>
         <th>出社</th>
         <th>退社</th>
         <th>在社時間</th>
@@ -42,11 +43,12 @@
           <td><%= l(day.worked_on, format: :short) %></td>
           <td class='<%= "wday#{day.worked_on.wday}" %>'><%= $days_of_the_week[day.worked_on.wday] %></td>
           <td>
-            <% if (Date.current == day.worked_on) && day.started_at.nil? %>
-              <%= link_to "出社", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+            <% if btn_text = attendance_state(day) %>
+              <%= link_to "#{btn_text}登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
             <% end %>
           </td>
-          <td></td>
+          <td><%= l(day.started_at, format: :time) if day.started_at.present? %></td>
+          <td><%= l(day.finished_at, format: :time) if day.finished_at.present? %></td>
           <td></td>
           <td></td>
         </tr>

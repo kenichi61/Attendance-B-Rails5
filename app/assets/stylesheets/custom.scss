@@ -108,3 +108,13 @@ p {
 .modal-dialog-center {
   padding-top: 10%;
 }
+
+/* 土曜は青、日曜は赤。*/
+
+.wday0 {
+  color: red;
+}
+
+.wday6 {
+  color: blue;
+}

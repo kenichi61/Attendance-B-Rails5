@@ -24,3 +24,5 @@ Things you may want to cover:
 * ...
 
 # 勤怠B開発
+
+* Git(HTTPSからSSH通信へ変更)

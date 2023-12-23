@@ -7,7 +7,11 @@ class UsersController < ApplicationController
   before_action :admin_or_correct, only: :show
   
   def index
-    @users = User.paginate(page: params[:page])
+    @users = if params[:search]
+               User.search_by_name(params[:search]).paginate(page: params[:page])
+             else
+               User.paginate(page: params[:page])
+             end
   end  
   
   def show

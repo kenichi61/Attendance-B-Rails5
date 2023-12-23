@@ -49,4 +49,7 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end  
+  
+  # ユーザーモデルに対し、ユーザー名の部分一致検索を行う為のスコープ
+  scope :search_by_name, ->(query) { where("name LIKE ?", "%#{query}%") }
 end
